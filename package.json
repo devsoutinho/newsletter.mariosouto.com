@@ -3,14 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "start": "next start",
     "dev": "next dev",
-    "build": "next build"
+    "build": "next build",
+    "build:emails": "node ./scripts/build_email/index.js",
+    "dev:build:emails": "nodemon ./scripts/build_emails/index.js"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
     "@supabase/supabase-js": "^2.1.0",
+    "dotenv": "^16.0.3",
+    "mjml": "^4.13.0",
     "next": "^13.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -18,6 +23,8 @@
   "devDependencies": {
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
+    "chalk": "^5.1.2",
+    "nodemon": "^2.0.20",
     "typescript": "4.9.3"
   }
 }
