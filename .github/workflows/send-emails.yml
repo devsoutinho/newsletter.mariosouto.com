@@ -11,6 +11,12 @@ on:
     branches:
       - 'main'
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABSE_KEY: ${{ secrets.SUPABSE_KEY }}
+  SENDGRID_KEY: ${{ secrets.SENDGRID_KEY }}
+
 jobs:
   external_info:
     runs-on: ubuntu-latest
