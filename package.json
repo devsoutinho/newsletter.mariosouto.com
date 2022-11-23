@@ -8,7 +8,7 @@
     "start": "next start",
     "dev": "next dev",
     "build": "next build",
-    "build:emails": "node ./scripts/build_email/index.js",
+    "build:emails": "node ./scripts/build_emails/index.js",
     "dev:build:emails": "nodemon ./scripts/build_emails/index.js"
   },
   "dependencies": {
