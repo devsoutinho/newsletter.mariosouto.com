@@ -36,3 +36,5 @@ jobs:
 
         yarn install
         yarn build:emails
+
+        git status
