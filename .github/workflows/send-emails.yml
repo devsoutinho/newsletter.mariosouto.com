@@ -1,0 +1,31 @@
+name: "[EMAIL_MARKETING] Send all needed emails" 
+
+on:
+  schedule:
+    # https://crontab.guru/every-2-minutes
+    # Esse cron roda a cada 1 hora
+    - cron: "0 * * * *"
+    # Esse cron roda a 2 cada minutos
+    # - cron: "*/2 * * * *"
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  external_info:
+    runs-on: ubuntu-latest
+    name: "[Sync] DevSoutinho Youtube Vídeos"
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Call Script
+      run: |
+        git config --global user.email "13791385+omariosouto@users.noreply.github.com"
+        git config --global user.name "Mario Souto - Bot"
+
+        echo "Eu devo chamar o comando de rodar os emails!"

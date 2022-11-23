@@ -11,7 +11,7 @@ dotEnv.config();
 const log = console.log;
 
 log(`${chalk.bgRed("[Email Builder] DevSoutinho 🔥")}`);
-log('\n\n');
+log('\n');
 
 const PACKAGE_ROOT = path.resolve(".");
 const EMAILS_ROOT = path.resolve(PACKAGE_ROOT, "_data", "emails");
@@ -28,11 +28,14 @@ allEmails.map(async (emailFolderName) => {
         mailingList: await mailingStrategy[baseMetadata.mailing]() || [],
         body: mjml2html(templateMJML).html,
     };
-
+    
     if(emailMetadata.sent) {
         log("Email already sent: ", chalk.bgYellow(emailMetadata.templateId));
         return false;
     }
+
+    // IF ANTES DA DATA CORRETA, NÃO ENVIA O EMAIl
+    // - Estude sobre datas, e estude sobre GTM-3
 
     for await (const currentLead of emailMetadata.mailingList) {
         log("Email being sent: ", chalk.bgGreen(emailMetadata.templateId));
@@ -55,10 +58,3 @@ allEmails.map(async (emailFolderName) => {
 });
 
 for await (const email of allEmails) {}
-
-/*
-- Percorrer a pasta de emails, e pegar todos os emails com o sent = false
-*/
-
-log('\n\n');
-log(`${chalk.bgRed("[Email Builder] End 🚒")}`);
