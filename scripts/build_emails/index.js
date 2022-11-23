@@ -47,7 +47,7 @@ allEmails.map(async (emailFolderName) => {
             html: emailMetadata.body,
         }
         sgMail.setApiKey(process.env.SENDGRID_KEY);
-        // await sgMail.send(msg);
+        await sgMail.send(msg);
     }
 
     fs.writeFileSync(METADATA_PATH, JSON.stringify({
