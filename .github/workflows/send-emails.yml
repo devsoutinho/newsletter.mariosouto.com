@@ -28,4 +28,5 @@ jobs:
         git config --global user.email "13791385+omariosouto@users.noreply.github.com"
         git config --global user.name "Mario Souto - Bot"
 
-        echo "Eu devo chamar o comando de rodar os emails!"
+        yarn install
+        yarn build:emails
